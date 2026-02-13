@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     if (response.role !== "LAWYER") {
       authService.logout();
-      throw new Error("Only POLICE role is allowed");
+      throw new Error("Only LAWYER role is allowed");
     }
 
     setUser({

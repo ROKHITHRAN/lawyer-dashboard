@@ -3,7 +3,14 @@ import { Search, Eye, ArrowLeft } from "lucide-react";
 import { caseService } from "../services/case.service";
 import { evidenceService } from "../services/evidence.service";
 import { logService } from "../services/log.service";
-import { Case, Evidence, AccessLog, ApiError, EvidenceHistory } from "../types";
+import {
+  Case,
+  Evidence,
+  AccessLog,
+  ApiError,
+  EvidenceHistory,
+  EvidenceType,
+} from "../types";
 import { fileService } from "../services/file.service";
 import { Modal } from "./Modal";
 
@@ -272,9 +279,9 @@ export const MyCases = () => {
                       <div className="flex justify-between items-start">
                         <div>
                           <h4 className="font-semibold text-gray-900 dark:text-white">
-                            {evidence.eType}
+                            {EvidenceType[Number(evidence.eType)]}
                           </h4>
-                          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">
+                          <p className="text-gray-600 dark:text-gray-400 text-sm mt-1 mr-1">
                             {evidence.description}
                           </p>
                           <p className="text-gray-500 dark:text-gray-500 text-xs mt-2">
