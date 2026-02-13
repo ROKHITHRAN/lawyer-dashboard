@@ -8,6 +8,7 @@ import { Evidence } from "./components/Evidence";
 import { Logs } from "./components/Logs";
 import { Files } from "./components/Files";
 import { Cases } from "./components/Cases";
+import { MyCases } from "./components/MyCases";
 
 function AppContent() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -38,6 +39,8 @@ function AppContent() {
     switch (currentView) {
       case "dashboard":
         return <Dashboard />;
+      case "my_cases":
+        return <MyCases />;
       case "cases":
         return <Cases />;
       case "evidence":

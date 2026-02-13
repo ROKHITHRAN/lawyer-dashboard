@@ -26,6 +26,7 @@ export const Sidebar = ({ currentView, onNavigate }: SidebarProps) => {
 
   const menuItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { id: "my_cases", label: "My Cases", icon: FolderOpen },
     { id: "cases", label: "Cases", icon: FolderOpen },
     { id: "evidence", label: "Evidence", icon: FileText },
     { id: "logs", label: "Logs", icon: ScrollText },

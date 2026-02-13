@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (credentials: LoginRequest) => {
     const response = await authService.login(credentials);
 
-    if (response.role !== "POLICE") {
+    if (response.role !== "LAWYER") {
       authService.logout();
       throw new Error("Only POLICE role is allowed");
     }

@@ -5,6 +5,7 @@ import {
   UpdateCaseRequest,
   AssignPoliceRequest,
   Officer,
+  PublicCaseDetails,
 } from "../types";
 
 export const caseService = {
@@ -15,6 +16,10 @@ export const caseService = {
 
   async getAllCases(): Promise<Case[]> {
     const response = await api.get<Case[]>("/api/cases");
+    return response.data;
+  },
+  async getPublicCaseDetails(): Promise<PublicCaseDetails[]> {
+    const response = await api.get<PublicCaseDetails[]>("/api/cases/public");
     return response.data;
   },
 
@@ -45,6 +50,16 @@ export const caseService = {
       `/api/cases/${caseId}/getOfficers`,
     );
 
+    return response.data;
+  },
+  async requestCaseAccess(caseId: string): Promise<{ message: string }> {
+    const response = await api.post<{ message: string }>(
+      `/api/court/${caseId}/request-access`,
+    );
+    return response.data;
+  },
+  async getMyRequests(): Promise<Case[]> {
+    const response = await api.get<Case[]>("/api/court/my-requests");
     return response.data;
   },
 };

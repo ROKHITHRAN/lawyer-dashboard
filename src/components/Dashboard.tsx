@@ -15,8 +15,19 @@ export const Dashboard = () => {
   const loadCases = async () => {
     try {
       setIsLoading(true);
-      const data = await caseService.getAllCases();
-      setCases(data);
+      // Get my requests with status APPROVED
+      const requests = await caseService.getMyRequests();
+      const approvedRequests = requests.filter(
+        (req) => req.status === "APPROVED",
+      );
+
+      // Get full case details for each approved request
+      const casePromises = approvedRequests.map((req) =>
+        caseService.getCaseById(req.caseId),
+      );
+      const approvedCases = await Promise.all(casePromises);
+
+      setCases(approvedCases);
       setError("");
     } catch (err) {
       const error = err as ApiError;

@@ -40,6 +40,12 @@ export interface Case {
 
   assignedPoliceUids: string[];
 }
+export interface PublicCaseDetails {
+  id: string;
+  title: string;
+  caseType: number;
+  timestamp: number;
+}
 
 export interface CreateCaseRequest {
   title: string;
