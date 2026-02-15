@@ -1,9 +1,6 @@
 import {
   LayoutDashboard,
   FolderOpen,
-  FileText,
-  ScrollText,
-  Upload,
   LogOut,
   Moon,
   Sun,
